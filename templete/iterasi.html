@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark opacity fixed-top shadow ">
+        <div class="container">
+          <a class="navbar-brand">K-Nearest Neighbor</a>
+          <div class="d-flex">
+            <a class="text-light text-decoration-none" href="/"><i class="bi bi-box-arrow-right fs-5 me-2"></i>Keluar</a>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row ">
+            <div class="col border-bottom">
+                <h1 class="mt-5">Definisi K-Nearest Neighbor</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p class="fs-4 mt-5">Algoritma Nearest Neighbor Retrieval (K-Nearest Neighbor atau K-NN) adalah
+                sebuah algoritma untuk melakukan klasifikasi terhadap objek dengan data pembelajaran yang jaraknya paling dekat dengan objek tersebut. Kasus khusus di mana
+                klasifikasi diprediksikan berdasarkan data pembelajaran yang paling dekat (dengan
+                kata lain, k = 1) disebut algoritma Nearest Neighbor.
+                Algoritma Nearest Neighbor berdasarkan pada proses pembelajaran menggunakan analogi/learning by analogi. Training sampelnya dideskripsikan dalam bentuk atribut numerik n-dimensi. Tiap sampel mewakili sebuah titik pada ruang
+                n-dimensi. Dengan cara ini, semua training sampel disimpan pada pola ruang ndimensi. Ketika diberikan ”unknown” sampel, K-Nearest Neighbor Classifier mencari pola ruang K training sampel yang paling dekat ”unknown” sampel tersebut.
+                K training sampel ini adalah K Nearest Neighbor dari unknown sampel. Unknown
+                sampel ditetapkan dengan class yang paling umum diantara k nearest neighborsnya.
+                Ketika k = 1, unknown sampel ditetapkan dengan class dari training sampel yang
+                paling dekat dengan pola ruangnya.
+                Rumus untuk menghitung bobot kemiripan (similarity) dengan Nearest Neighbor
+                digunakan rumus Euclidean yaitu.
+                dij =
+                vuut
+                Xm
+                j=1
+                (xij − ckj )
+                2
+                (1)
+                dengan i=1,..., N; dan k = 1,.., P.
+                Pada kasus ini, N=10, P=2, dan m=2
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .opacity{
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .opacito{
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark opacity fixed-top shadow ">
+        <div class="container">
+          <a class="navbar-brand">Data Mining</a>
+          <form class="d-flex">
+            <input name="cari2" class="form-control me-2" type="search" placeholder="Search" value="{{data}}"  aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    <div class="container mb-5 mt-5 " >
+        <div class="row border-bottom border-dark pb-4">
+            <div class="col-3 mt-3">
+                <h1 class="text-start" style="
+                text-transform: capitalize;
+                font-size: 25px;
+                font-weight:lighter;
+                ">Data Mining</h1>
+            </div>
+            <div class="col-6 text-start mt-3">
+                <form method="POST" action="/search" >
+                    <div class="input-group input-group-default shadow ">
+                           <input type="text" name="cari" class="form-control " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{data}}">
+                            <button  class="input-group-text btn btn-dark" id="inputGroup-sizing-default">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row mt-5 " >
+            <div class="col">
+                <p class="card-text"><small class="text-muted">K-Nearest Neighbor</small>
+                <br><a class="text-decoration-none fs-2" href="/iterasi/K-Nearest-Neighbor">Definisi K-Nearest Neighbor</a></p>
+                <p class="card-text"><small class="text-muted"> artinya apa?
+                    Algoritma Nearest Neighbor Retrieval (K-Nearest Neighbor atau K-NN) adalah sebuah algoritma untuk melakukan klasifikasi terhadap objek dengan data pembe- lajaran yang jaraknya paling dekat dengan objek tersebut ...<a href="" class="text-decoration-none">selengkapnya</a> </small></p>
+            </div>
+        </div>
+        <div class="row mt-5 " >
+            <div class="col">
+                <p class="card-text"><small class="text-muted">K-Nearest Neighbor</small>
+                <br><a class="text-decoration-none fs-2" href="/impl/K-Nearest-Neighbor">Implementasi K-Nearest Neighbor</a></p>
+                <p class="card-text"><small class="text-muted"> Tujuan penelitian ini untuk membuktikan kelemahan metode KNN dan ekstraksi fitur warna RGB dengan karakteristik tertentu. Percobaan pertama dilakukan terhadap dua objek dengan kemiripan bentuk tetapi dengan  warna yang  mencolok di salah satu sisi objek. Percobaan kedua terhadap dua objek yang memiliki perbedaan karakteristik bentuk meskipun memiliki kemiripan warna ...<a href="/impl/K-Nearest-Neighbor" class="text-decoration-none">selengkapnya</a> </small></p>
+            </div>
+        </div>
+        <div class="row mt-5 " >
+            <div class="col">
+                <p class="card-text"><small class="text-muted">Diskritisasi</small>
+                <br><a class="text-decoration-none fs-2" href="/code/Diskritisasi">Source code Python diskritisasi</a></p>
+                <p class="card-text"><small class="text-muted"> Beberapa algoritma yang digunakan untuk membuat model penambangan data di SQL Server SQL Server Analysis Services memerlukan jenis konten tertentu agar berfungsi dengan benar. Misalnya, algoritma Microsoft ...<a href="/code/Diskritisasi" class="text-decoration-none">selengkapnya</a> </small></p>
+            </div>
+        </div>
+        <div class="row mt-5 " >
+            <div class="col">
+                <p class="card-text"><small class="text-muted">Decision Tree</small>
+                <br><a class="text-decoration-none fs-2" href="">Apa itu Decision Tree?</a></p>
+                <p class="card-text"><small class="text-muted"> Jelaskan apa yang dimaksud dengan decision tree? Decision tree merupakan suatu struktur yang digunakan untuk membantu proses pengambilan keputusan. Disebut sebagai “tree” karena struktur ini menyerupai sebuah pohon lengkap dengan akar, batang, dan percabangannya ...<a href="" class="text-decoration-none">selengkapnya</a> </small></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        const navbar = document.querySelector('nav')
+        window.addEventListener('scroll' ,() => {
+            if(window.pageYOffset > 100){
+                navbar.classList.remove('opacity')
+                
+                navbar.classList.add('opacito')
+                
+            }else{
+                
+                navbar.classList.add('opacity')
+                navbar.classList.remove('opacito')
+            }
+        })
+    </script>
+</body>
+</html>
