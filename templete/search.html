@@ -22,9 +22,8 @@
     <nav class="navbar navbar-dark bg-dark opacity fixed-top shadow ">
         <div class="container">
           <a class="navbar-brand">Data Mining</a>
-          <form class="d-flex">
-            <input name="cari2" class="form-control me-2" type="search" placeholder="Search" value="{{data}}"  aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Search</button>
+          <form class="d-grid">
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input" value="Prediksi Penyakit Jantung">
           </form>
         </div>
       </nav>
@@ -40,8 +39,7 @@
             <div class="col-6 text-start mt-3">
                 <form method="POST" action="/search" >
                     <div class="input-group input-group-default shadow ">
-                           <input type="text" name="cari" class="form-control " aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{{data}}">
-                            <button  class="input-group-text btn btn-dark" id="inputGroup-sizing-default">Search</button>
+                        <input class="form-control" type="text" value="Prediksi Penyakit Jantung" aria-label="Prediksi Penyakit Jantung" disabled readonly  >
                     </div>
                 </form>
             </div>
@@ -49,16 +47,16 @@
         <div class="row mt-5 " >
             <div class="col">
                 <p class="card-text"><small class="text-muted">K-Nearest Neighbor</small>
-                <br><a class="text-decoration-none fs-2" href="/iterasi/K-Nearest-Neighbor">Definisi K-Nearest Neighbor</a></p>
+                <br><a class="text-decoration-none fs-2" href="/K-Nearest-Neighbor">Implementasi K-Nearest Neighbor</a></p>
                 <p class="card-text"><small class="text-muted"> artinya apa?
-                    Algoritma Nearest Neighbor Retrieval (K-Nearest Neighbor atau K-NN) adalah sebuah algoritma untuk melakukan klasifikasi terhadap objek dengan data pembe- lajaran yang jaraknya paling dekat dengan objek tersebut ...<a href="" class="text-decoration-none">selengkapnya</a> </small></p>
+                    Algoritma Nearest Neighbor Retrieval (K-Nearest Neighbor atau K-NN) adalah sebuah algoritma untuk melakukan klasifikasi terhadap objek dengan data pembe- lajaran yang jaraknya paling dekat dengan objek tersebut ...<a href="/K-Nearest-Neighbor" class="text-decoration-none">selengkapnya</a> </small></p>
             </div>
         </div>
         <div class="row mt-5 " >
             <div class="col">
                 <p class="card-text"><small class="text-muted">K-Nearest Neighbor</small>
-                <br><a class="text-decoration-none fs-2" href="/impl/K-Nearest-Neighbor">Implementasi K-Nearest Neighbor</a></p>
-                <p class="card-text"><small class="text-muted"> Tujuan penelitian ini untuk membuktikan kelemahan metode KNN dan ekstraksi fitur warna RGB dengan karakteristik tertentu. Percobaan pertama dilakukan terhadap dua objek dengan kemiripan bentuk tetapi dengan  warna yang  mencolok di salah satu sisi objek. Percobaan kedua terhadap dua objek yang memiliki perbedaan karakteristik bentuk meskipun memiliki kemiripan warna ...<a href="/impl/K-Nearest-Neighbor" class="text-decoration-none">selengkapnya</a> </small></p>
+                <br><a class="text-decoration-none fs-2" href="/Diskritisasi">Implementasi Diskritisasi</a></p>
+                <p class="card-text"><small class="text-muted"> Beberapa algoritma yang digunakan untuk membuat model penambangan data di SQL Server SQL Server Analysis Services memerlukan jenis konten tertentu agar berfungsi dengan benar. Misalnya, algoritma Microsoft ...<a href="/Diskritisasi" class="text-decoration-none">selengkapnya</a> </small></p>
             </div>
         </div>
         <div class="row mt-5 " >
