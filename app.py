@@ -63,18 +63,22 @@ def iterasi():
         return render_template('knn.html')
 
 
+@app.route('/deskripsi')
+def deskripsi():
+    return render_template('deskripsi.html')
 
-@app.route('/code/Diskritisasi')
+
+@app.route('/naive-bayes-Classifer')
 def code():
-    return render_template('code.html')
+    return render_template('naive-bayes-Classifer.html')
 
 @app.route('/Diskritisasi')
 def implement():
     return render_template('dsk.html')
 
-@app.route('/akurasi')
+@app.route('/Decision-Tree')
 def akurasi():
-    return render_template('akurasi.html')
+    return render_template('Decision-Tree.html')
 
 if __name__ == "__main__":
     app.run(debug=True,port=5000)
