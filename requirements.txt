@@ -9,3 +9,6 @@ Werkzeug==2.2.2
 pandas
 numpy
 sklearn
+sklearn.neighbors
+sklearn.model_selection
+warnings
