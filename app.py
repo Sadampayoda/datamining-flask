@@ -1,6 +1,10 @@
 from flask import Flask , render_template ,request ,redirect ,url_for
 import pandas as pd
 import numpy as np
+from sklearn.neighbors import KNeighborsClassifier# Create KNN classifier
+from sklearn.model_selection import train_test_split #split dataset into train and test data
+import warnings
+warnings.filterwarnings('ignore', category=UserWarning, append=True)
 
 
 
@@ -20,10 +24,8 @@ def Search():
 
 @app.route('/K-Nearest-Neighbor',methods=['POST','GET'])
 def iterasi():
-    from sklearn.model_selection import train_test_split #split dataset into train and test data
-    import warnings
-    warnings.filterwarnings('ignore', category=UserWarning, append=True)
-    from sklearn.neighbors import KNeighborsClassifier# Create KNN classifier
+    
+    
     if request.method == "POST":
         
         nama = request.form['nama']
@@ -81,4 +83,4 @@ def akurasi():
     return render_template('Decision-Tree.html')
 
 if __name__ == "__main__":
-    app.run(debug=True,port=5000)
+    app.run(debug=True)
