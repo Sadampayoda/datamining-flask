@@ -9,4 +9,3 @@ Werkzeug==2.2.2
 pandas
 numpy
 sklearn
-warnings
