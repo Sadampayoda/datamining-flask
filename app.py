@@ -1,5 +1,5 @@
 from flask import Flask , render_template ,request ,redirect ,url_for,jsonify
-import json
+
 import pandas as pd
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier# Create KNN classifier
@@ -18,7 +18,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 app = Flask(__name__,template_folder='templete')
 
-df = pd.read_csv('heart_cleveland_upload.csv')
+df = pd.read_csv('Maternal-Health-Risk-Data-Set.csv')
 
 
 
@@ -42,22 +42,16 @@ def iterasi():
         
         nama = request.form['nama']
         umur = float(request.form['umur'])
-        kelamin = float(request.form['kelamin'])
-        nyeri = float(request.form['nyeri-data'])
-        tekanan = float(request.form['tekanan-darah'])
-        kadar = float(request.form['kadar-kolestrol'])
-        gula = float(request.form['gula-darah'])
-        elektro = float(request.form['elektro'])
-        detak = float(request.form['detak-jantung'])
-        fisik = float(request.form['fisik-berat'])
-        st = float(request.form["ST-Depression"])
-        segmen = float(request.form['segmen']) 
-        kapal = float(request.form['kapal'])
-        cacar = float(request.form['cacar'])
+        darahTinggi = float(request.form['darah-tinggi'])
+        darahRendah = float(request.form['darah-rendah'])
+        molar = float(request.form['molar'])
+        suhu = float(request.form['suhu'])
+        jantung = float(request.form['jantung'])
+        
 
         
-        X = df.drop(columns=["condition"])
-        y = df["condition"].values
+        X = df.drop(columns=["RiskLevel"])
+        y = df["RiskLevel"].values
         percent_amount_of_test_data = 0.2
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = percent_amount_of_test_data, random_state=1, stratify=y)
         amount_of_neighbor = 3
@@ -65,7 +59,7 @@ def iterasi():
 
         knn.fit(X_train,y_train)
         knn.score(X_test, y_test)
-        hasil = knn.predict([[5,umur,kelamin,nyeri,tekanan,kadar,gula,elektro,detak,fisik,st,segmen,kapal,cacar]])
+        hasil = knn.predict([[umur,darahTinggi,darahRendah,molar,suhu,jantung]])
         return render_template('hasil.html',hasil=hasil , nama=nama)
 
 
@@ -84,34 +78,26 @@ def deskripsi():
 @app.route('/preprosesing')
 def preprosesing():
     
-    df_for_minmax_scaler=pd.DataFrame(df, columns = ['age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal','condition'])
+    df_for_minmax_scaler=pd.DataFrame(df, columns = ['Age','SystolicBP','DiastolicBP','BS','HeartRate'])
     df_for_minmax_scaler.to_numpy()
     scaler = MinMaxScaler()
     df_hasil_minmax_scaler=scaler.fit_transform(df_for_minmax_scaler)
-    df_hasil_minmax_scaler = pd.DataFrame(df_hasil_minmax_scaler,columns = ['age','sex','cp','trestbps','chol','fbs','restecg','thalach','exang','oldpeak','slope','ca','thal','condition'])
+    df_hasil_minmax_scaler = pd.DataFrame(df_hasil_minmax_scaler,columns = ['Age','SystolicBP','DiastolicBP','BS','HeartRate'])
     data = df_hasil_minmax_scaler
-    return render_template('preprosesing.html', df=data)
+    return render_template('preprosesing.html', df=round(data,3))
 
 
 
 @app.route('/naive-bayes-Classifer',methods=['POST','GET'])
 def code():
     if request.method == "POST":
-        
         nama = request.form['nama']
         umur = float(request.form['umur'])
-        kelamin = float(request.form['kelamin'])
-        nyeri = float(request.form['nyeri-data'])
-        tekanan = float(request.form['tekanan-darah'])
-        kadar = float(request.form['kadar-kolestrol'])
-        gula = float(request.form['gula-darah'])
-        elektro = float(request.form['elektro'])
-        detak = float(request.form['detak-jantung'])
-        fisik = float(request.form['fisik-berat'])
-        st = float(request.form["ST-Depression"])
-        segmen = float(request.form['segmen']) 
-        kapal = float(request.form['kapal'])
-        cacar = float(request.form['cacar'])
+        darahTinggi = float(request.form['darah-tinggi'])
+        darahRendah = float(request.form['darah-rendah'])
+        molar = float(request.form['molar'])
+        suhu = float(request.form['suhu'])
+        jantung = float(request.form['jantung'])
 
         # separate target 
         #create a dataframe with all training data except the target column
@@ -127,7 +113,7 @@ def code():
         clf.fit(X, y)
         clf_pf = GaussianNB()
         clf_pf.partial_fit(X, y, np.unique(y))
-        tes = clf_pf.predict([[5,umur,kelamin,nyeri,tekanan,kadar,gula,elektro,detak,fisik,st,segmen,kapal,cacar]])
+        tes = clf_pf.predict([[umur,darahTinggi,darahRendah,molar,suhu,jantung]])
 
 
         return render_template('hasil.html',resultNb = tes , nama=nama)

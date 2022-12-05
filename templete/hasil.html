@@ -27,28 +27,38 @@
         <div class="row mt-3" >
             {% if hasil != ' ' %}
                 <div class="col border p-2 rounded border" style="background:#ddd;">
-                    {% if hasil == 0 %}
+                    {% if hasil == 'low risk'%}
                         <div class="alert alert-success" role="alert">
-                            Kemungkinan saudara {{nama}} tidak terkena penyakit jantung
+                            Kemungkinan Tingkat Intensitas dari Ibu {{nama}} dikategorikan resiko rendah selama kehamilan
+                        </div>
+                    {% elif hasil == 'mid risk'%}
+                        <div class="alert alert-success" role="alert">
+                            Kemungkinan Tingkat Intensitas dari Ibu {{nama}} dikategorikan resiko menengah selama kehamilan
                         </div>
                     {% else %}
                         <div class="alert alert-success" role="alert">
-                            Kemungkinan saudara {{nama}} terkena penyakit jantung
+                            Kemungkinan Tingkat Intensitas dari Ibu {{nama}} dikategorikan resiko tinggi selama kehamilan
                         </div>
                     {% endif %}
+                    
                 </div>
             {% elif resultNb != ' ' %}
-                <div class="col border p-2 rounded border" style="background:#ddd;">
-                    {% if resultNb == 0 %}
-                        <div class="alert alert-success" role="alert">
-                            Kemungkinan saudara {{nama}} tidak terkena penyakit jantung
-                        </div>
-                    {% else %}
-                        <div class="alert alert-success" role="alert">
-                            Kemungkinan saudara {{nama}} terkena penyakit jantung
-                        </div>
-                    {% endif %}
-                </div>
+            <div class="col border p-2 rounded border" style="background:#ddd;">
+                {% if resultNb == 'low risk'%}
+                    <div class="alert alert-success" role="alert">
+                        Kemungkinan Tingkat Intensitas dari Ibu {{nama}} dikategorikan resiko rendah selama kehamilan
+                    </div>
+                {% elif resultNb == 'mid risk'%}
+                    <div class="alert alert-success" role="alert">
+                        Kemungkinan Tingkat Intensitas dari Ibu {{nama}} dikategorikan resiko menengah selama kehamilan
+                    </div>
+                {% else %}
+                    <div class="alert alert-success" role="alert">
+                        Kemungkinan Tingkat Intensitas dari Ibu {{nama}} dikategorikan resiko tinggi selama kehamilan
+                    </div>
+                {% endif %}
+                
+            </div>
             {% endif %}
         </div>
     </div>
